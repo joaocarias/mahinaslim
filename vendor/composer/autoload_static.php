@@ -13,12 +13,17 @@ class ComposerStaticInit5ff60659e6a52545ec1e3f67b664b10d
     public static $prefixLengthsPsr4 = array (
         'S' => 
         array (
+            'Slim\\Views\\' => 11,
             'Slim\\' => 5,
         ),
         'P' => 
         array (
             'Psr\\Http\\Message\\' => 17,
             'Psr\\Container\\' => 14,
+        ),
+        'L' => 
+        array (
+            'Lib\\' => 4,
         ),
         'I' => 
         array (
@@ -28,9 +33,17 @@ class ComposerStaticInit5ff60659e6a52545ec1e3f67b664b10d
         array (
             'FastRoute\\' => 10,
         ),
+        'A' => 
+        array (
+            'App\\' => 4,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
+        'Slim\\Views\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/slim/php-view/src',
+        ),
         'Slim\\' => 
         array (
             0 => __DIR__ . '/..' . '/slim/slim/Slim',
@@ -43,6 +56,10 @@ class ComposerStaticInit5ff60659e6a52545ec1e3f67b664b10d
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
         ),
+        'Lib\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/lib',
+        ),
         'Interop\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/container-interop/container-interop/src/Interop/Container',
@@ -50,6 +67,10 @@ class ComposerStaticInit5ff60659e6a52545ec1e3f67b664b10d
         'FastRoute\\' => 
         array (
             0 => __DIR__ . '/..' . '/nikic/fast-route/src',
+        ),
+        'App\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/app',
         ),
     );
 
