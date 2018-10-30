@@ -11,17 +11,20 @@ use Lib\Controller;
  */
 class HomeController extends Controller{
     public function index($request, $response){
-        $vars['page'] = 'home';        
+        $vars['action'] = 'home';
+        $vars['controller'] = 'Home';        
         return $this->view->render($response, 'layout_home.php', $vars);
     }
     
     public function sobre($request, $response){
-        $vars['page'] = 'sobre';        
+        $vars['action'] = 'sobre';  
+        $vars['controller'] = 'Home';
         return $this->view->render($response, 'layout_home.php', $vars);
     }
     
     public function contato($request, $response){
-        $vars['page'] = 'contato';        
+        $vars['action'] = 'contato';
+        $vars['controller'] = 'Home';        
         return $this->view->render($response, 'layout_home.php', $vars);
     }
 }
