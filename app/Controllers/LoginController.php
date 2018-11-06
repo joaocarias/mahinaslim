@@ -3,7 +3,8 @@
 namespace App\Controllers;
 
 use Lib\Controller;
-
+use App\Repositorios\RepositorioLogAcesso;
+use App\Models\LogAcesso;
 /**
  * Description of LoginController
  *
@@ -25,11 +26,19 @@ class LoginController extends Controller {
         $btnAcessar = filter_input(INPUT_POST, 'btnAcessar', FILTER_SANITIZE_STRING);
         $loginInput = filter_input(INPUT_POST, 'loginInput', FILTER_SANITIZE_STRING);
         $senhaInput = filter_input(INPUT_POST, 'senhaInput', FILTER_SANITIZE_STRING);
+//        
+//        if($btnAcessar){
+//            
+//        }else{
+//            
+//        }
+        $logAcesso = new LogAcesso('1', '111.111.111-00', 'NEGADO');
+        $repositorioLogAcesso = new RepositorioLogAcesso();
+        $retorno = $repositorioLogAcesso->insertObj($logAcesso);
         
-        if($btnAcessar){
-            
-        }else{
-            
-        }
+        $vars['action'] = 'login';
+        $vars['controller'] = 'Login';        
+        return $this->view->render($response, 'layout_home.php', $vars);
+        
     }
 }
