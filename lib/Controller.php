@@ -2,6 +2,9 @@
 
 namespace Lib;
 
+use App\Models\LogAcesso;
+use App\Repositorios\RepositorioLogAcesso;
+
 /**
  * Description of Controller
  *
@@ -18,5 +21,11 @@ class Controller {
         if($this->container->{$property}){
             return $this->container->{$property};
         }
+    }
+    
+    public function registrarLogin($status, $login, $id_usuario = 0){
+        $logAcesso = new LogAcesso($id_usuario, $login, $status);
+        $repositorioLogAcesso = new RepositorioLogAcesso();
+        return $repositorioLogAcesso->insertObj($logAcesso);
     }
 }
