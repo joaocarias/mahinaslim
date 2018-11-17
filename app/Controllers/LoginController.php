@@ -15,7 +15,7 @@ class LoginController extends Controller {
     public function login($request, $response){
         $vars['action'] = 'login';
         $vars['controller'] = 'Login';        
-        return $this->view->render($response, 'layout_home.php', $vars);
+        return $this->view->render($response, 'layout_login.php', $vars);
     }
     
     public function logar($request, $response){
@@ -36,21 +36,14 @@ class LoginController extends Controller {
             //var_dump($_SESSION);
             
             $retorno = $this->registrarLogin("PERMITIDO", $loginInput, $_SESSION['id_usuario']);
-            $vars['action'] = 'login';
-            $vars['controller'] = 'Login';        
-            $vars['msg'] = $retorno;
-            
-            var_dump($_SESSION);
-//            return $this->view->render($response, 'layout_home.php', $vars);                        
+           
+            header("Location: ../dashboard?r=".$retorno['id']);           
+            exit();
         }else{
             $retorno = $this->registrarLogin("NEGADO", $loginInput);
-            
-            $vars['action'] = 'login';
-            $vars['controller'] = 'Login';
-            $vars['msg'] = $retorno;
-            return $this->view->render($response, 'layout_home.php', $vars);            
+           
+            header("Location: ../dashboard?r=".$retorno['id']."&msg=0");           
+            exit();
         }        
     }
-    
-    
 }
