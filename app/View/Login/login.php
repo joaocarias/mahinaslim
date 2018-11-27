@@ -34,7 +34,7 @@
             <input class="form-control" name="senhaInput" id="senhaInput" type="password" placeholder="Password" required>
           </div>          
           <div class="form-group btn-container">
-            <button name="btnAcessar" class="btn btn-primary btn-block"><i class="fa fa-sign-in fa-lg fa-fw"></i>Entrar</button>
+              <input type="submit" name="btnAcessar" class="btn btn-primary btn-block" value="Entrar" />
           </div>
         </form>
         

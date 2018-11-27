@@ -13,7 +13,7 @@ class DashboardController extends Controller {
     public function index($request, $response){
         $vars['action'] = 'index';
         $vars['controller'] = 'Dashboard';
-       // var_dump($vars);
-        return $this->view->render($response, 'layout_dashboard.php', $vars);
+       // var_dump($_SESSION);
+       return $this->view->render($response, 'layout_dashboard.php', $vars);
     }
 }

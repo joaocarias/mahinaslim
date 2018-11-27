@@ -75,6 +75,7 @@
           <ul class="dropdown-menu settings-menu dropdown-menu-right">
             <!--<li><a class="dropdown-item" href="page-user.html"><i class="fa fa-cog fa-lg"></i> Settings</a></li>-->
             <li><a class="dropdown-item" href="page-user.html"><i class="fa fa-user fa-lg"></i> Profile</a></li>
+            <li><a class="dropdown-item" href="page-user.html"><i class="fa fa-user fa-lg"></i> Resetar Senha</a></li>
             <li><a class="dropdown-item" href="login"><i class="fa fa-sign-out fa-lg"></i> Sair</a></li>
           </ul>
         </li>
@@ -87,8 +88,8 @@
       <div class="app-sidebar__user">
           <!--<img class="app-sidebar__user-avatar" src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/48.jpg" alt="User Image">-->
         <div>
-          <p class="app-sidebar__user-name">John Doe</p>
-          <p class="app-sidebar__user-designation">Frontend Developer</p>
+            <p class="app-sidebar__user-name"><?= $_SESSION['nome_pessoa']?></p>
+          <p class="app-sidebar__user-designation"><?= $_SESSION['cpf_pessoa']?></p>
         </div>
       </div>
       <ul class="app-menu">

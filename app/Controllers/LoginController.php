@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use Lib\Controller;
 use App\Repositorios\RepositorioLogAcesso;
+use App\Repositorios\RepositorioPessoa;
 use App\Repositorios\RepositorioUsuario;
 use App\Models\LogAcesso;
 /**
@@ -27,23 +28,25 @@ class LoginController extends Controller {
             $repUsuario = new RepositorioUsuario(); 
             $objUsuario = $repUsuario->getObjPorLogin($loginInput);
             
-            $_SESSION['id_usuario'] = $objUsuario->getId_usuario();
-            $_SESSION['id_pessoa'] = $objUsuario->getId_pessoa();
-            $_SESSION['login'] = $objUsuario->getLogin();
-           // $_SESSION['cpf_pessoa'] = $dados->getCpf_servidor();
-           // $_SESSION['nome_pessoa'] = $dados->getCpf_servidor();
-            $_SESSION['logado'] = '1';
-            //var_dump($_SESSION);
-            
-            $retorno = $this->registrarLogin("PERMITIDO", $loginInput, $_SESSION['id_usuario']);
+            if($objUsuario != null AND $objUsuario->getId_usuario() > 0 AND $objUsuario->getId_pessoa() > 0){
+                $repPessoa = new RepositorioPessoa();
+                $objPessoa = $repPessoa->getPessoa($objUsuario->getId_pessoa());
+                
+                $_SESSION['id_usuario'] = $objUsuario->getId_usuario();
+                $_SESSION['id_pessoa'] = $objUsuario->getId_pessoa();
+                $_SESSION['login'] = $objUsuario->getLogin();
+                $_SESSION['cpf_pessoa'] = $objPessoa->getCpf();
+                $_SESSION['nome_pessoa'] = $objPessoa->getNome();
+                $_SESSION['logado'] = '1';
            
-            header("Location: ../dashboard?r=".$retorno['id']);           
-            exit();
+                $retorno = $this->registrarLogin("PERMITIDO", $loginInput, $_SESSION['id_usuario']);
+                return $this->response->withHeader('Location', '/dashboard');
+            }
         }else{
             $retorno = $this->registrarLogin("NEGADO", $loginInput);
            
             header("Location: ../dashboard?r=".$retorno['id']."&msg=0");           
-            exit();
+          //  exit();
         }        
     }
 }
