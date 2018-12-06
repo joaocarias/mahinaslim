@@ -36,9 +36,26 @@
           <div class="form-group btn-container">
               <input type="submit" name="btnAcessar" class="btn btn-primary btn-block" value="Entrar" />
           </div>
+          
+            <?php 
+                $msg = null;               
+                if(isset($_GET["msg"])){
+                    $msg = $_GET["msg"];                   
+                    if(!is_null($msg)){                        
+                       echo '<div style="margin-top: 15px" class="alert alert-warning alert-dismissible fade show text-center" role="alert">
+                                 Usuário ou Senha Inválida!
+                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>';
+                    }
+                }
+            ?>
+          
         </form>
-        
+         
       </div>
+       
     </section>
     <!-- Essential javascripts for application to work-->
     <script src="js/jquery-3.2.1.min.js"></script>

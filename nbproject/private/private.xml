@@ -3,20 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/branc/Documents/NetBeansProjects/MahinaSlim/composer.json</file>
-            <file>file:/C:/Users/branc/Documents/NetBeansProjects/MahinaSlim/app/Interfaces/IRepositorioLogAcesso.php</file>
-            <file>file:/C:/Users/branc/Documents/NetBeansProjects/MahinaSlim/app/Controllers/HomeController.php</file>
-            <file>file:/C:/Users/branc/Documents/NetBeansProjects/MahinaSlim/lib/Model.php</file>
-            <file>file:/C:/Users/branc/Documents/NetBeansProjects/MahinaSlim/config/config.php</file>
-            <file>file:/C:/Users/branc/Documents/NetBeansProjects/MahinaSlim/app/routes.php</file>
-            <file>file:/C:/Users/branc/Documents/NetBeansProjects/MahinaSlim/lib/Conexao.php</file>
-            <file>file:/C:/Users/branc/Documents/NetBeansProjects/MahinaSlim/config/constancts.php</file>
-            <file>file:/C:/Users/branc/Documents/NetBeansProjects/MahinaSlim/app/Repositorios/RepositorioLogAcesso.php</file>
-            <file>file:/C:/Users/branc/Documents/NetBeansProjects/MahinaSlim/app/Models/LogAcesso.php</file>
+            <file>file:/C:/Users/branc/Documents/NetBeansProjects/MahinaSlim/storage/scritp_db.sql</file>
+            <file>file:/C:/Users/branc/Documents/NetBeansProjects/MahinaSlim/app/Models/Pessoa.php</file>
             <file>file:/C:/Users/branc/Documents/NetBeansProjects/MahinaSlim/app/Controllers/LoginController.php</file>
-            <file>file:/C:/Users/branc/Documents/NetBeansProjects/MahinaSlim/layout/footer.php</file>
+            <file>file:/C:/Users/branc/Documents/NetBeansProjects/MahinaSlim/layout/header_dashboard.php</file>
+            <file>file:/C:/Users/branc/Documents/NetBeansProjects/MahinaSlim/app/Repositorios/RepositorioPessoa.php</file>
+            <file>file:/C:/Users/branc/Documents/NetBeansProjects/MahinaSlim/app/routes.php</file>
+            <file>file:/C:/Users/branc/Documents/NetBeansProjects/MahinaSlim/app/View/Dashboard/index.php</file>
             <file>file:/C:/Users/branc/Documents/NetBeansProjects/MahinaSlim/app/View/Login/login.php</file>
-            <file>file:/C:/Users/branc/Documents/NetBeansProjects/MahinaSlim/composer.lock</file>
+            <file>file:/C:/Users/branc/Documents/NetBeansProjects/MahinaSlim/app/Controllers/DashboardController.php</file>
+            <file>file:/C:/Users/branc/Documents/NetBeansProjects/MahinaSlim/layout/layout_dashboard.php</file>
         </group>
     </open-files>
 </project-private>

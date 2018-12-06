@@ -14,6 +14,7 @@ use App\Models\LogAcesso;
  */
 class LoginController extends Controller {
     public function login($request, $response){
+        session_destroy();
         $vars['action'] = 'login';
         $vars['controller'] = 'Login';        
         return $this->view->render($response, 'layout_login.php', $vars);
@@ -41,12 +42,18 @@ class LoginController extends Controller {
            
                 $retorno = $this->registrarLogin("PERMITIDO", $loginInput, $_SESSION['id_usuario']);
                 return $this->response->withHeader('Location', '/dashboard');
-            }
+            }else{
+                $retorno = $this->registrarLogin("NEGADO", $loginInput);
+                return $this->response->withHeader('Location', '/login?msg=0');
+            }            
         }else{
             $retorno = $this->registrarLogin("NEGADO", $loginInput);
-           
-            header("Location: ../dashboard?r=".$retorno['id']."&msg=0");           
-          //  exit();
+            return $this->response->withHeader('Location', '/login?msg=2');
         }        
+    }
+    
+    public function logout($request, $response){
+        session_destroy();
+        return $this->response->withHeader('Location', '/login');
     }
 }
