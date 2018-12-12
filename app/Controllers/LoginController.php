@@ -39,9 +39,14 @@ class LoginController extends Controller {
                 $_SESSION['cpf_pessoa'] = $objPessoa->getCpf();
                 $_SESSION['nome_pessoa'] = $objPessoa->getNome();
                 $_SESSION['logado'] = '1';
-           
+                $_SESSION['id_empresa'] = $objPessoa->getId_empresa();
+            
                 $retorno = $this->registrarLogin("PERMITIDO", $loginInput, $_SESSION['id_usuario']);
-                return $this->response->withHeader('Location', '/dashboard');
+                if(!is_null($objPessoa->getId_empresa()) OR ($objPessoa->getId_empresa() < 0 ) OR ($objPessoa->getId_empresa() == "")){                   
+                    return $this->response->withHeader('Location', '/empresa/cadastro');
+                }else{                   
+                    return $this->response->withHeader('Location', '/dashboard');    
+                }
             }else{
                 $retorno = $this->registrarLogin("NEGADO", $loginInput);
                 return $this->response->withHeader('Location', '/login?msg=0');

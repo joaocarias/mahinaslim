@@ -4,16 +4,28 @@ namespace App\Controllers;
 
 use Lib\Controller;
 
-/**
- * Description of DashboardController
- *
- * @author branc
- */
 class DashboardController extends Controller {
     public function index($request, $response){
-        $vars['action'] = 'index';
-        $vars['controller'] = 'Dashboard';
-       var_dump($_SESSION);
-       return $this->view->render($response, 'layout_dashboard.php', $vars);
+       
+        if($this->validarAcesso()){
+            if($this->validarEmpresa()){
+                $controller = 'Dashboard';
+                $action = 'index';
+            }else{
+                return $this->response->withHeader('Location', '/empresa/cadastro');
+            }
+        }else{
+            return $this->response->withHeader('Location', '/login?msg=3');
+        }
+        echo "<pre>";
+        var_dump($_SESSION);
+        echo "</pre>";
+        $vars['action'] = $action;
+        $vars['controller'] = $controller;      
+        $_SESSION['controller'] = $controller;
+        $_SESSION['action'] = $action;
+        
+        return $this->view->render($response, 'layout_dashboard.php', $vars);
+       
     }
 }
