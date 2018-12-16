@@ -8,6 +8,7 @@ $app->get('/login/logout', 'App\Controllers\LoginController:logout');
 $app->get('/empresa','App\Controllers\EmpresaController:index');
 $app->get('/empresa/index','App\Controllers\EmpresaController:index');
 $app->get('/empresa/cadastro','App\Controllers\EmpresaController:cadastro');
+$app->post('/empresa/cadastrar','App\Controllers\EmpresaController:cadastrar');
 
 //Site
 $app->get('/', 'App\Controllers\HomeController:index');

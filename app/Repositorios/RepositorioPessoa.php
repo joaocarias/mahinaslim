@@ -33,4 +33,11 @@ class RepositorioPessoa implements IRepositorioPessoa {
             return new Pessoa();
         }   
     }
+    
+    public function setEmpresa($idPessoa, $idEmpresa) {
+        $sql = " UPDATE tb_pessoa SET id_empresa = '{$idEmpresa}' WHERE id_pessoa = '{$idPessoa}'";
+        $obj = new Pessoa();
+        $retorno = $obj->update($sql);
+        return $retorno;
+    }
 }

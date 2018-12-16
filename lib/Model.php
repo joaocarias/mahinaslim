@@ -35,4 +35,16 @@ class Model extends Conexao {
             return array("obj"=>null, "msg_tipo"=>"error", "msg"=>$ex->getMessage());
         }
     }
+    
+    public function update($sql){
+        try{
+            $pdo = parent::getDB();
+            $query = $pdo->prepare($sql);
+            $query->execute();
+                                   
+            return array("msg_tipo"=>"success", "msg"=>"Cadastrado atualizado com sucesso!");
+        } catch (Exception $ex) {
+            return array("msg_tipo"=>"error", "msg"=>$ex->getMessage());
+        }
+    }
 }

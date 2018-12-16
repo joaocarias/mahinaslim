@@ -17,9 +17,7 @@ class DashboardController extends Controller {
         }else{
             return $this->response->withHeader('Location', '/login?msg=3');
         }
-        echo "<pre>";
-        var_dump($_SESSION);
-        echo "</pre>";
+        
         $vars['action'] = $action;
         $vars['controller'] = $controller;      
         $_SESSION['controller'] = $controller;

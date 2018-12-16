@@ -31,4 +31,35 @@ class RepositorioEmpresa implements IRepositorioEmpresa {
         }   
     }
 
+    public function insertEmpresa(Empresa $empresa) {
+       $tabela = "tb_empresa";
+        
+        $params = array(
+                "cnpj" =>$empresa->getCnpj(), 
+                "id_endereco" => $empresa->getId_endereco(),
+                "nome" => $empresa->getNome(),
+                "nome_fantasia" => $empresa->getNome_fantasia(),                
+                "criado_por" => $_SESSION["id_usuario"]
+                );
+        
+        $colunas = "";        
+        $valores = "";
+        foreach ($params as $coluna => $valor){
+            if($i == 0){
+                $colunas .= "{$coluna}";
+                $valores .= "'{$valor}'";
+            }else{
+                $colunas .= ", {$coluna}";
+                $valores .= ", '{$valor}'";
+            }
+            $i++;
+        }
+        
+        $sql = " INSERT INTO {$tabela} ( {$colunas} ) "
+        . "VALUES ({$valores}); ";
+        
+        $arrayRetorno = $empresa->insert($sql);
+        return $arrayRetorno; 
+    }
+
 }

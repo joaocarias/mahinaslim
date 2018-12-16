@@ -42,7 +42,7 @@ class LoginController extends Controller {
                 $_SESSION['id_empresa'] = $objPessoa->getId_empresa();
             
                 $retorno = $this->registrarLogin("PERMITIDO", $loginInput, $_SESSION['id_usuario']);
-                if(!is_null($objPessoa->getId_empresa()) OR ($objPessoa->getId_empresa() < 0 ) OR ($objPessoa->getId_empresa() == "")){                   
+                if(is_null($objPessoa->getId_empresa()) OR ($objPessoa->getId_empresa() < 0 ) OR ($objPessoa->getId_empresa() == "")){                   
                     return $this->response->withHeader('Location', '/empresa/cadastro');
                 }else{                   
                     return $this->response->withHeader('Location', '/dashboard');    
